@@ -574,14 +574,27 @@ require('lazy').setup({
           cmd = { 'gopls' },
           filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
         },
-        pyright = {
-          cmd = { 'pyright-langserver', '--stdio' },
+        --pyright = {
+        --  cmd = { 'pyright-langserver', '--stdio' },
+        --  filetypes = { 'python' },
+        --  settings = {
+        --    python = {
+        --      autoSearchPaths = true,
+        --      diagnoticMode = 'openFilesOnly',
+        --      useLibraryCodeForTypes = true,
+        --    },
+        --  },
+        --  single_file_support = true,
+        --},
+        pylyzer = {
+          cmd = { 'pylyzer', '--server' },
           filetypes = { 'python' },
           settings = {
             python = {
-              autoSearchPaths = true,
-              diagnoticMode = 'openFilesOnly',
-              useLibraryCodeForTypes = true,
+              checkOnType = false,
+              diagnostics = true,
+              inlayHints = true,
+              smartCompletion = true,
             },
           },
           single_file_support = true,
